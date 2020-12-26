@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Base de Datos MYsql</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+</head>
+<body>
+    <H1>Ingresa tus datos</H1>
+    <div id="RE">
+        
+    <form action="/registrar" method="POST">
+     
+        <input type="text" id="nom" name="nom" placeholder="nombres" required>  
+
+        <br>
+        <input type="text" name="apell" placeholder="Apellidos" required>
+        <br>
+        <input type="text" name="user_name" placeholder="Nombre de usuario" required>
+        <br>
+        <input type="text" name="pass" placeholder="contrasena" required>
+        <br>
+        <label>fecha de nacimiento</label>
+        <input type="date" name="nacimiento" required>
+         
+
+        <button type="submit">Registrase</button>
+       
+        <br>
+    </form>
+</div>
+    {% with messages = get_flashed_messages() %}
+	{% if messages %}
+	{% for messagea in messages %}
+			 <div class = "col-md-2 ">
+			<div class = "card card.body">
+			  <table>{{ messagea }}</table>
+		   </div>
+		   </div>
+	{% endfor %}
+	{% endif %}
+    {% endwith %}
+
+</body>
+
+</html>

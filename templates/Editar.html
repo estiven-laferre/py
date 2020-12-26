@@ -1,0 +1,37 @@
+{% extends "layao.html"%}
+{% block contend %}
+<body>
+    <form action="/actu/{{user.0}}" method="POST">
+        <input type="text" name="nom" placeholder="nombres" value="{{user.1}}">
+        <br>
+        <input type="text" name="apell" placeholder="Apellidos" value="{{user.2}}">
+        <br>
+        <input type="text" name="user_name" placeholder="Nombre de usuario" value="{{user.3}}">
+        <br>
+        <input type="text" name="pass" placeholder="contrasena" value="{{user.4}}">
+        <br>
+        <label>fecha de nacimiento</label>
+        <input type="date" name="nacimiento" value="{{user.5}}" >
+        <label for="">admin</label>
+        <div class="switch-button">
+            <!-- Checkbox -->
+            <input type="checkbox" name="admina" id="admina" class="switch-button__checkbox"  value="1"
+           
+            
+            {% if user.6 == 1 %}
+           
+            checked
+           
+        {% endif %} > 
+            <!-- Botón -->
+            <label for="admina" class="switch-button__label"></label>
+           <br> 
+           <br>
+        <button type="submit">Actualiza</button>
+        
+    </form>
+
+</body>
+
+</html>
+{% endblock %}

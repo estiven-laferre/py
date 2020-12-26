@@ -1,0 +1,76 @@
+{% extends "layao.html"%}
+{% block contend %}
+<head>
+    <button onclick="back()">Volver</button>
+    <script type="text/javascript">
+      function back(){
+        history.back();
+      }
+    </script>
+
+<div id="RE">
+    <form action="/registrar1" method="POST">
+        <input type="text" name="nom" placeholder="nombres">
+        <br>
+        <input type="text" name="apell" placeholder="Apellidos">
+        <br>
+        <input type="text" name="user_name" placeholder="Nombre de usuario">
+        <br>
+        <input type="text" name="pass" placeholder="contrasena">
+        <br>
+        <label>fecha de nacimiento</label>
+        <input type="date" name="nacimiento" >
+        <button type="submit">Registrase</button>
+        <br>
+    </form>
+</div>
+<h2>Usarios</h2>
+<form action="">
+    <table class="egt" dir="ltr">
+        <thead>
+            <th>ID</th>
+            <th>nombres</th>
+            <th>apellidos</th>
+            <th>nombre de Usuario</th>
+            <th>contrasena</th>
+            <th>fecha de nacimiento</th>
+            <th>admin</th>
+            <th>ajustes</th>
+            
+        </thead>
+        {% for user in users %}
+        <tr>
+            <td>{{user.0}}</td>
+            <td>{{user.1}}</td> 
+            <td>{{user.2}}</td>
+            <td>{{user.3}}</td>
+            <td>{{user.4}}</td>
+            <td>{{user.5}}</td>
+            {% if user.6 == 1 %}
+                <td>Eres admin</td>
+            {% else %}
+                <td>No eres admin</td>
+            {% endif %}
+                <!-- <td>{{user.6}}</td> -->
+            
+            <td>
+                <a href="/borrar_user/{{user.0}}">Borrar</a>
+                <a href="/editar_user/{{user.0}}">Editar</a>
+            </td>
+           
+             
+                
+            </div>
+        </form>
+        </td>
+            
+        </tr>
+        
+        {% endfor %}
+    </table>
+    
+</form>
+        </div>
+</html>
+
+{%endblock%}

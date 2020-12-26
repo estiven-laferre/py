@@ -1,0 +1,81 @@
+
+<html lang="de">
+    <head>
+      
+        <meta charset="UTF - 8">
+        <Content-Security-Policy: script-src 'self' >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-compatible" content="ei=edge">
+      <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}"> 
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+    
+   </form>
+    <body>
+      <div  id="menu">
+    
+        <table id="menua">
+               
+                    
+                   <td id="logo"><img src="img/logo.png"></td>
+                   <td><a href="/user">inicio</a></td>
+
+                   
+        
+                   {% if admin == 1 %}
+                   <td> <a href="/user/admin">administrar usuarios</a></td>    
+               
+               {% endif %}
+                    
+                        
+                               
+                           
+              
+                 
+                
+               
+                 
+        <td id="logo"><a href="/login/cuenta" > Mi Cuenta</a>
+                    <div id="cuenta_window">
+                    {% with messages = get_flashed_messages(category_filter=["cuenta"]) %}
+                    {% if messages %}
+                    {%- for messagea in messages %}
+        <form id="adv">
+        <h1>{{nom}}</h1>
+        <h3>
+             {% if admin == 1 %}
+            Eres admin
+        {% else %}
+            No eres admin
+        {% endif %}
+        </h3>
+        {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </form>
+        </div>
+        
+                
+                    
+                </td>
+        
+                </table>
+        </div>
+        
+      
+<div class="contairner p-4">
+ 
+       {% block contend %}
+	  
+		 
+       {%endblock%} 
+       
+</div>
+
+    </body>
+    <script src="{{ url_for('static', filename='js/mlmanager.js') }}?v={{ et }}"></script>
+    <script src="{{ url_for('static', filename='js/locales/de.js') }}?v={{ et }}"></script>
+    <script src="{{ url_for('static', filename='js/base.js') }}?v={{ et }}"></script>
+
+</html>

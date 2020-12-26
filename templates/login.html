@@ -1,0 +1,87 @@
+<html lang="ne">
+
+<head>
+    
+    <meta charset="utf-8" />
+
+    <title>Base de Datos MYsql</title>
+    <meta Content-Security-Policy: script-src 'self' >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+    <link rel="stylesheet" href="main.css">
+    
+</head>
+
+
+{{ gettext('hi') }}
+<body>
+ <div  id="messeage_box">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    
+        {% for messagea in messages %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+        
+    <script>
+    window.setTimeout(function () {
+        $(".alert").slideUp(1500, 0).slideUp(1000, function () {
+            $().slideUp(1500, 0);
+        });
+    
+    }, 2000);
+    </script>
+    <div class="alert alert-dark" role="alert" id="adv">
+     <h5>{{ messagea }}</h5>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="buton_adv">
+    
+        <span aria-hidden="true" id="boton">&times;</span>
+    
+    </button>
+       
+    </div>
+        {% endfor %}
+    
+    {% endif %}
+    {% endwith %}
+  </div>
+    <div   id="RE">
+        <form action="/login" method="POST">
+
+            <h1>Bienvenido</h1>
+            <input type="text" name="user" placeholder="Usario">
+            <br>
+            <br>
+            <input type="password" name="pass" placeholder="contrasena" >
+            <br>
+            <br>
+            <button type="submit" id="button">Ingresar</button>
+            <br>
+            <br>
+            <a href="/registro">Registarse</a>
+        </form>
+   
+    </div>
+    
+   
+    
+  
+   
+
+
+
+
+  
+
+ 
+
+</body>
+
+
+
+
+   
+
+</html>

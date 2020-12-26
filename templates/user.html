@@ -1,0 +1,73 @@
+{% extends "layao.html"%}
+{% block contend %}
+
+      
+
+
+{% with messages = get_flashed_messages(category_filter=["bienvenido"]) %}
+{% if messages %}
+{%- for messagea in messages %}
+        
+          <h1>{{ messagea }} </h1>
+       
+{% endfor %}
+{% endif %}
+{% endwith %}
+<div id="cuerpo_pro">
+ <form action="/registrar_producto" method="POST">  
+<h2>ingresar un nuevo producto</h2>
+{% if admin == 1 %}
+ <h1><a href="/user/admin">administrar usuarios</a>   </h1>
+
+{% endif %}
+<table>
+    <thead>
+        <th>producto</th>
+        <th>precio</th>
+        <th>cantidad</th>
+        
+    </thead>
+    <tr>
+      
+        <td><input type="text" name="pro"></td> 
+        <td><input type="text" name="pre"></td>
+        <td><input type="text" name="cant"></td>
+      
+    </tr>
+</table>
+<button type="submit">ingresar</button>
+
+</form>
+
+</div>
+<h2>producto ingresado</h2>
+<form action="">
+    <table class="egt" dir="ltr">
+        <thead>
+            <th>ID</th>
+            <th>producto</th>
+            <th>precio</th>
+            <th>cantidad</th>
+            <th>Usuario que lo ingreso</th>
+            <th>ajustes</th>
+        </thead>
+        {% for pro in products %}
+        <tr>
+            <td>{{pro.0}}</td>
+            <td>{{pro.1}}</td> 
+            <td>{{pro.2}}</td>
+            <td>{{pro.3}}</td>
+            <td>{{pro.4}}</td>
+            <td><a href="/borrar/{{pro.0}}">Borrar</a></td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+        
+</form>
+        </div>
+        <h1>Please fill out this field.</h1>
+</html>
+
+
+{%endblock%}
