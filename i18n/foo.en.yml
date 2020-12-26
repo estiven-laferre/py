@@ -1,0 +1,10 @@
+en:
+  hi: guitermorgen !
+  his: gutenmorges!
+
+  mail_number:
+    zero: You do not have any mail.
+    one: You have a new mail.
+    two : xs
+    few: You only have %{count} mails.
+    many: You have %{count} new mails.

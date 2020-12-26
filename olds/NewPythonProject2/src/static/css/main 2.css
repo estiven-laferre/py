@@ -1,0 +1,32 @@
+
+    header {
+        color: #5bffb0;
+        font-size: 2.5em;
+        padding: 20px 50px
+    }
+    header span {
+        color: #722
+    }
+
+    nav {
+        font-size: 1.5em;
+        margin: 5px 0;
+        padding: 20px 50px
+    }
+    nav li {
+        display: inline;
+        margin: 0 15px
+    }
+    nav li:first-child {
+        margin-left: 0
+    }
+    * html nav ul {
+        margin-left: -15px
+    }
+    nav span, nav a {
+        padding: 3px 15px 4px
+    }
+    nav span {
+        background: #722;
+        color: #5bffb0
+    }

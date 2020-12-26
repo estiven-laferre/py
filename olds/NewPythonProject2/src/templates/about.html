@@ -1,0 +1,83 @@
+{% extends "layao.html"%}
+
+
+<html lang="en">
+    <head>
+       
+ <body bgcolor=#35d2f5 height="50%" width="100%"/>
+
+        <title>Registro :3</title>
+        <meta charset="UTF - 8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-compatible" content="ei=edge">
+        
+    <body>
+	
+          {% block contend %}
+		  <div class="row">
+		  <div class = "col-md-5 ">
+		  <div class = "card card.body">
+		  <form action="/reg" method="POST">
+         <input type="text" name="fullname" placeholder="fullname"/>
+          <input type="text" name="phone" placeholder="phone"/>
+         <input type="text" name="email" placeholder="email"/>
+         <button type="submit" >
+           <title>Registro :3</title>
+         <div>7w7</div>
+          
+         save
+         </button>
+          </form>
+		  
+		  </div>
+		  </div>
+		  <div class = "col-md-5 ">
+		  <div class = "card card.body">
+		   <table class="table table-striped table-border">
+		  <thead>
+		  <tr> 
+		 <h1> <strong>
+		  <td>fullname</td>
+		  <td>phone</td>
+		  <td>email</td>
+		  <td>ajustar</td>
+		  </strong>
+		  </h1>
+		  </tr>
+		  </thead>
+		  <tbody>
+		  {% for cont in conta %}
+		  <tr>
+		      <td>{{ cont.1 }}</td>
+		      <td>{{ cont.2 }}</td>
+			  <td>{{ cont.3 }}</td>
+			  <td>
+			  <a href="/editar/{{cont.0}}">editar</a>
+			  <a href="/borrar/{{cont.0}}">borrar</a>
+			  </td>
+		  </tr>
+		  {% endfor %}
+		  </tbody>
+		  </table>
+		  </div>
+		  </div>
+		  
+		  
+         
+		  {% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for messagea in messages %}
+         <div class = "col-md-2 ">
+	    <div class = "card card.body">
+		  <table>{{ messagea }}</table>
+       </div>
+	   </div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+         </div>
+          {%endblock%}
+		 
+     
+    </body>
+</html>
